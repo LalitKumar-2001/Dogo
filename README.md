@@ -1,6 +1,5 @@
-# my_app
-
-A new Flutter project.
+# DOGO 
+Unified application to cater all needs related to dogs
 
 ## Getting Started
 
