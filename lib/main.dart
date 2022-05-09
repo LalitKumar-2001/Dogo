@@ -1,7 +1,118 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-void main() => runApp(MaterialApp(
+class PostCard extends StatefulWidget {
+  const PostCard({Key? key}) : super(key: key);
+
+  @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+          // border: Border.all(width: 2),
+          borderRadius: BorderRadius.circular(5.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            offset: const Offset(
+              5.0,
+              5.0,
+            ), //Offset
+            blurRadius: 10.0,
+            spreadRadius: 2.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: const Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
+      ),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: [
+            ListTile(
+              // leading: Icon(Icons.arrow_drop_down_circle),
+              leading: Container(
+                  width: 50.0,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(width:2),
+                      image: const DecorationImage(
+                        image: NetworkImage('https://picsum.photos/300/200'),
+                        fit: BoxFit.fill,
+                      ),
+                  )
+              ),
+              title: const Text('Bravo'),
+              subtitle: Text(
+                'Place',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                '"ONE LINE CAPTION"',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 4.0,right: 4.0),
+              padding: const EdgeInsets.all(110.0),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                border: Border.all(width:2),
+                borderRadius: BorderRadius.circular(5.0),
+                image: const DecorationImage(
+                  image: NetworkImage('https://picsum.photos/400'),
+                  fit: BoxFit.cover,
+                ),
+
+              ),
+            ),
+            ButtonBar(
+              alignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.thumb_up_alt_outlined,size:30,),
+                ),
+                IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.chat_bubble_outline_outlined,size:30,),
+                ),
+                IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.send_and_archive_outlined,size:30,),
+                ),
+
+                // FlatButton(
+                //   textColor: const Color(0xFF6200EE),
+                //   onPressed: () {
+                //     // Perform some action
+                //   },
+                //   child: const Text('ACTION 2'),
+                // ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void main() => runApp(const MaterialApp(
   debugShowCheckedModeBanner: false,//To stop showing the debug tag
   home: Home(),
 ));
@@ -14,7 +125,7 @@ class Home extends StatelessWidget {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('DOGO',style: TextStyle(
+        title: const Text('DOGO',style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
           letterSpacing: 5.0,
@@ -26,17 +137,18 @@ class Home extends StatelessWidget {
         color: Colors.black12,
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          // mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               decoration: BoxDecoration(
                   border: Border.all(width: 2,),
                   borderRadius: BorderRadius.circular(5.0)
               ),
-              margin: EdgeInsets.only(top: 5.0,bottom: 5.0),
-              padding: EdgeInsets.all(5.0),
+              margin: const EdgeInsets.only(top: 5.0,bottom: 5.0),
+              padding: const EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,8 +156,8 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.only(left:20.0),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.only(left:20.0),
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: NetworkImage('https://picsum.photos/200/300'),
@@ -56,7 +168,7 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: NetworkImage('https://picsum.photos/400'),
@@ -67,7 +179,7 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: NetworkImage('https://picsum.photos/44'),
@@ -75,7 +187,7 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.navigate_next,
                     size: 38,
                     color: Colors.black,
@@ -84,150 +196,23 @@ class Home extends StatelessWidget {
               ) ,
             ),
             Container(
-                decoration: BoxDecoration(
-                    // border: Border.all(width: 2),
-                    borderRadius: BorderRadius.circular(5.0)
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      // padding: EdgeInsets.all(5.0),
-                      margin: EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                          // border: Border.all(width: 2),
-                          borderRadius: BorderRadius.circular(5.0)
-                      ),
-                      child: Card(
-                        clipBehavior: Clip.antiAlias,
-                        child: Column(
-                          children: [
-                            ListTile(
-                              // leading: Icon(Icons.arrow_drop_down_circle),
-                              leading: Container(
-                                width: 50.0,
-                                height: 50.0,
-                                decoration: BoxDecoration(
-                                 shape: BoxShape.circle,
-                                 border: Border.all(width:2),
-                                 image: DecorationImage(
-                                   image: NetworkImage('https://picsum.photos/300/200'),
-                                   fit: BoxFit.fill,
-                                 )
-                                )
-                              ),
-                              title: const Text('Bravo'),
-                              subtitle: Text(
-                                'Place',
-                                style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '"ONE LINE CAPTION"',
-                                style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 4.0,right: 4.0),
-                              padding: EdgeInsets.all(110.0),
-                              width: MediaQuery.of(context).size.width,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                border: Border.all(width:2),
-                                borderRadius: BorderRadius.circular(5.0),
-                                image: DecorationImage(
-                                  image: NetworkImage('https://picsum.photos/400'),
-                                  fit: BoxFit.cover,
-                                ),
-
-                              ),
-                            ),
-                            ButtonBar(
-                              alignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                IconButton(
-                                  onPressed: (){},
-                                      icon: Icon(Icons.thumb_up_alt_outlined,size:30,),
-                                ),
-                                IconButton(
-                                  onPressed: (){},
-                                  icon: Icon(Icons.chat_bubble_outline_outlined,size:30,),
-                                ),
-                                IconButton(
-                                  onPressed: (){},
-                                  icon: Icon(Icons.send_and_archive_outlined,size:30,),
-                                ),
-
-                                // FlatButton(
-                                //   textColor: const Color(0xFF6200EE),
-                                //   onPressed: () {
-                                //     // Perform some action
-                                //   },
-                                //   child: const Text('ACTION 2'),
-                                // ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-
-                    // Container(
-                    //   padding: EdgeInsets.all(5.0),
-                    //   margin: EdgeInsets.all(5.0),
-                    //   decoration: BoxDecoration(
-                    //       border: Border.all(width: 2),
-                    //       borderRadius: BorderRadius.circular(5)
-                    //   ),
-                    //   child: Text('First Post'),
-                    // ),
-                  ],
+                // decoration: BoxDecoration(
+                //   border: Border.all(width: 2),
+                //   borderRadius: BorderRadius.circular(2.0),
+                // ),
+                child: Center(
+                  child: ListView(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.stretch,
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    children: [PostCard(),PostCard(),PostCard()]
+                  ),
                 )
-            )
+            ),
           ],
-
         ),
       ),
-
-
-
-          // Center(
-          //   child: Container(
-          //     child: Column(
-          //       mainAxisSize: MainAxisSize.min,
-          //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //       children: [
-          //         Container(
-          //           child:Text('Text-1'),
-          //           padding: EdgeInsets.all(30.0),
-          //           // margin: EdgeInsets.all(30.0),
-          //           color: Colors.cyan[500],
-          //         ),
-          //         Text('Text-2',
-          //         style:TextStyle(
-          //           fontSize: 30.0,
-          //           fontWeight: FontWeight.bold,
-          //           color: Colors.cyan[300],
-          //           fontFamily:'Inspiration',
-          //         )),
-          //         Row(
-          //           mainAxisSize: MainAxisSize.max,
-          //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //           children: [
-          //             Text('Row Text-1'),
-          //             Text('Row Text-1'),
-          //             Text('Row Text-1'),
-          //           ],
-          //         ),
-          //
-          //       ],
-          //     )
-          //   ),
-          // ),
 
 
       // Center(
@@ -284,7 +269,7 @@ class Home extends StatelessWidget {
       //     ),
       // )
 
-      bottomNavigationBar: NavBarState(),
+      bottomNavigationBar: const NavBarState(),
       // bottomNavigationBar:BottomNavigationBar(
       //   selectedItemColor: Colors.black,
       //   unselectedItemColor: Colors.black54,
@@ -324,9 +309,9 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.black,
         onPressed: (){
           Navigator.push(context,
-          MaterialPageRoute( builder: (context) => Profile() ),
+          MaterialPageRoute( builder: (context) => const Profile() ),
           );},
-        child:Icon(Icons.add),
+        child:const Icon(Icons.add),
       ),
     );
   }
@@ -357,25 +342,25 @@ class _NavBarStateState extends State<NavBarState> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
     items: [
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon:Icon(Icons.home,size:30),
       label: 'Home',
       activeIcon: Icon(Icons.home_outlined,color:Colors.teal,size:30),
       backgroundColor: Colors.white,
       ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon:Icon(Icons.local_hospital,size:30),
       label:'Help',
       activeIcon: Icon(Icons.local_hospital_outlined,color:Colors.blueAccent,size:30),
       backgroundColor:Colors.white,
       ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon:Icon(Icons.store,size:30),
       label:'Shop',
       activeIcon: Icon(Icons.store_mall_directory_outlined,color:Colors.red,size:30),
       backgroundColor:Colors.white,
       ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon:Icon(Icons.account_circle,size:30),
       label:'Profile',
       activeIcon: Icon(Icons.account_circle_outlined,size:30,color: Colors.amber,),
@@ -401,7 +386,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile',style:TextStyle(
+        title: const Text('Profile',style:TextStyle(
           fontFamily: 'Inspiration',
           fontSize: 30,
           fontWeight: FontWeight.bold,
@@ -411,11 +396,11 @@ class Profile extends StatelessWidget {
           backgroundColor: Colors.black,
       ),
       body: Center(
-          child:new ElevatedButton(
+          child:ElevatedButton(
         onPressed: (){Navigator.pop(context);},
-        child: new Text('Go Back!'),
+        child: const Text('Go Back!'),
       )),
-      bottomNavigationBar: NavBarState(),
+      bottomNavigationBar: const NavBarState(),
     );
   }
 }
