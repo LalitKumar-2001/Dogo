@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Lalit/StudioProjects/MyApp/my_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/Lalit/Dogo/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/Lalit/StudioProjects/MyApp/my_app/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/Lalit/Dogo/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'splash.dart';
 
 class PostCard extends StatefulWidget {
   const PostCard({Key? key}) : super(key: key);
@@ -14,8 +15,8 @@ class _PostCardState extends State<PostCard> {
     return Container(
       margin: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-          // border: Border.all(width: 2),
-          borderRadius: BorderRadius.circular(5.0),
+        // border: Border.all(width: 2),
+        borderRadius: BorderRadius.circular(5.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black,
@@ -44,14 +45,13 @@ class _PostCardState extends State<PostCard> {
                   width: 50.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(width:2),
-                      image: const DecorationImage(
-                        image: NetworkImage('https://picsum.photos/300/200'),
-                        fit: BoxFit.fill,
-                      ),
-                  )
-              ),
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 2),
+                    image: const DecorationImage(
+                      image: NetworkImage('https://picsum.photos/300/200'),
+                      fit: BoxFit.fill,
+                    ),
+                  )),
               title: const Text('Bravo'),
               subtitle: Text(
                 'Place',
@@ -66,34 +66,42 @@ class _PostCardState extends State<PostCard> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 4.0,right: 4.0),
+              margin: const EdgeInsets.only(left: 4.0, right: 4.0),
               padding: const EdgeInsets.all(110.0),
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
-                border: Border.all(width:2),
+                border: Border.all(width: 2),
                 borderRadius: BorderRadius.circular(5.0),
                 image: const DecorationImage(
                   image: NetworkImage('https://picsum.photos/400'),
                   fit: BoxFit.cover,
                 ),
-
               ),
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                  onPressed: (){},
-                  icon: const Icon(Icons.thumb_up_alt_outlined,size:30,),
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.thumb_up_alt_outlined,
+                    size: 30,
+                  ),
                 ),
                 IconButton(
-                  onPressed: (){},
-                  icon: const Icon(Icons.chat_bubble_outline_outlined,size:30,),
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.chat_bubble_outline_outlined,
+                    size: 30,
+                  ),
                 ),
                 IconButton(
-                  onPressed: (){},
-                  icon: const Icon(Icons.send_and_archive_outlined,size:30,),
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.send_and_archive_outlined,
+                    size: 30,
+                  ),
                 ),
 
                 // FlatButton(
@@ -113,9 +121,9 @@ class _PostCardState extends State<PostCard> {
 }
 
 void main() => runApp(const MaterialApp(
-  debugShowCheckedModeBanner: false,//To stop showing the debug tag
-  home: Home(),
-));
+      debugShowCheckedModeBanner: false, //To stop showing the debug tag
+      home: Splash(),
+    ));
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -123,17 +131,19 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        title: const Text('DOGO',style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 5.0,
-        ),),
+        title: const Text(
+          'DOGO',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 5.0,
+          ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-      body:Container(
+      body: Container(
         color: Colors.black12,
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -144,11 +154,10 @@ class Home extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 2,),
-                  borderRadius: BorderRadius.circular(5.0)
-              ),
-              margin: const EdgeInsets.only(top: 5.0,bottom: 5.0),
-              padding: const EdgeInsets.all(5.0),
+                  border: Border.all(width:1.0),
+                  borderRadius: BorderRadius.circular(3.0)),
+              margin: const EdgeInsets.only(top: 3.0, bottom: 5.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -156,9 +165,10 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: const EdgeInsets.only(left:20.0),
-                    decoration: const BoxDecoration(
+                    margin: const EdgeInsets.only(left: 20.0),
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
+                      border:Border.all(width:2,style:BorderStyle.solid,color: Colors.black45),
                       image: DecorationImage(
                         image: NetworkImage('https://picsum.photos/200/300'),
                         fit: BoxFit.fill,
@@ -168,8 +178,9 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
+                      border:Border.all(width:2,style:BorderStyle.solid,color: Colors.black45),
                       image: DecorationImage(
                         image: NetworkImage('https://picsum.photos/400'),
                         fit: BoxFit.fill,
@@ -179,8 +190,33 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
+                      border:Border.all(width:2,style:BorderStyle.solid,color: Colors.black45),
+                      image: DecorationImage(
+                        image: NetworkImage('https://picsum.photos/300/200'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border:Border.all(width:2,style:BorderStyle.solid,color: Colors.black45),
+                      image: DecorationImage(
+                        image: NetworkImage('https://picsum.photos/200/320'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border:Border.all(width:2,style:BorderStyle.solid,color: Colors.black45),
                       image: DecorationImage(
                         image: NetworkImage('https://picsum.photos/44'),
                         fit: BoxFit.fill,
@@ -193,7 +229,7 @@ class Home extends StatelessWidget {
                     color: Colors.black,
                   )
                 ],
-              ) ,
+              ),
             ),
             Container(
                 // decoration: BoxDecoration(
@@ -201,19 +237,16 @@ class Home extends StatelessWidget {
                 //   borderRadius: BorderRadius.circular(2.0),
                 // ),
                 child: Center(
-                  child: ListView(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.stretch,
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    children: [PostCard(),PostCard(),PostCard()]
-                  ),
-                )
-            ),
+              child: ListView(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.stretch,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: [PostCard(), PostCard(), PostCard()]),
+            )),
           ],
         ),
       ),
-
 
       // Center(
       //   child: Row(
@@ -307,11 +340,13 @@ class Home extends StatelessWidget {
       // ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
-        onPressed: (){
-          Navigator.push(context,
-          MaterialPageRoute( builder: (context) => const Profile() ),
-          );},
-        child:const Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Profile()),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -327,9 +362,12 @@ class NavBarState extends StatefulWidget {
 class _NavBarStateState extends State<NavBarState> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Home Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Search Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Profile Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
   void _onItemTapped(int index) {
@@ -341,40 +379,45 @@ class _NavBarStateState extends State<NavBarState> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-    items: [
-    const BottomNavigationBarItem(
-      icon:Icon(Icons.home,size:30),
-      label: 'Home',
-      activeIcon: Icon(Icons.home_outlined,color:Colors.teal,size:30),
-      backgroundColor: Colors.white,
-      ),
-    const BottomNavigationBarItem(
-      icon:Icon(Icons.local_hospital,size:30),
-      label:'Help',
-      activeIcon: Icon(Icons.local_hospital_outlined,color:Colors.blueAccent,size:30),
-      backgroundColor:Colors.white,
-      ),
-    const BottomNavigationBarItem(
-      icon:Icon(Icons.store,size:30),
-      label:'Shop',
-      activeIcon: Icon(Icons.store_mall_directory_outlined,color:Colors.red,size:30),
-      backgroundColor:Colors.white,
-      ),
-    const BottomNavigationBarItem(
-      icon:Icon(Icons.account_circle,size:30),
-      label:'Profile',
-      activeIcon: Icon(Icons.account_circle_outlined,size:30,color: Colors.amber,),
-      backgroundColor:Colors.white,
-      ),
-    ],
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home, size: 30),
+            label: 'Home',
+            activeIcon: Icon(Icons.home_outlined, color: Colors.teal, size: 30),
+            backgroundColor: Colors.white,
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.local_hospital, size: 30),
+            label: 'Help',
+            activeIcon: Icon(Icons.local_hospital_outlined,
+                color: Colors.blueAccent, size: 30),
+            backgroundColor: Colors.white,
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.store, size: 30),
+            label: 'Shop',
+            activeIcon: Icon(Icons.store_mall_directory_outlined,
+                color: Colors.red, size: 30),
+            backgroundColor: Colors.white,
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle, size: 30),
+            label: 'Profile',
+            activeIcon: Icon(
+              Icons.account_circle_outlined,
+              size: 30,
+              color: Colors.amber,
+            ),
+            backgroundColor: Colors.white,
+          ),
+        ],
         type: BottomNavigationBarType.shifting,
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black54,
         iconSize: 40,
         onTap: _onItemTapped,
-        elevation: 5
-    );
+        elevation: 5);
   }
 }
 
@@ -386,18 +429,21 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile',style:TextStyle(
-          fontFamily: 'Inspiration',
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-          color: Colors.amber,
-        )),
+        title: const Text('Profile',
+            style: TextStyle(
+              fontFamily: 'Inspiration',
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.amber,
+            )),
         centerTitle: true,
-          backgroundColor: Colors.black,
+        backgroundColor: Colors.black,
       ),
       body: Center(
-          child:ElevatedButton(
-        onPressed: (){Navigator.pop(context);},
+          child: ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
         child: const Text('Go Back!'),
       )),
       bottomNavigationBar: const NavBarState(),
